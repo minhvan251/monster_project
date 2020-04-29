@@ -10,7 +10,7 @@ class App extends Component {
       search:'',
       test:''
     };
-    this.filter = this.filter.bind(this)
+    // this.filter = this.filter.bind(this)
     // this.handleChage = this.handleChage.bind(this)
   }
   componentDidMount(){
@@ -22,6 +22,7 @@ class App extends Component {
   
   filter = () => {
     const {monsters, search} = this.state;
+    console.log(search, monsters);
     return monsters.filter(monster =>
       monster.name.toLowerCase().includes(search.toLowerCase())
       )
@@ -33,7 +34,7 @@ class App extends Component {
 
   render() {
     const filterMonsters = this.filter();
-  
+    console.log(filterMonsters)
     return (
       
       <div className="App">
@@ -47,7 +48,7 @@ class App extends Component {
     
         
 
-        <CardList monsters ={filterMonsters} >  </CardList>;
+        <CardList monsters ={filterMonsters} >  </CardList>
         
 
       </div>
