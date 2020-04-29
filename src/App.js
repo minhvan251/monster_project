@@ -19,22 +19,18 @@ class App extends Component {
     // .then(json => console.log(json[0].name))
     .then(json => this.setState({monsters:json}))
   }
-  
-  filter = () => {
-    const {monsters, search} = this.state;
-    console.log(search, monsters);
-    return monsters.filter(monster =>
-      monster.name.toLowerCase().includes(search.toLowerCase())
-      )
-  }
+
   handleChange = (e) => {
     // console.log(this);
     this.setState({search: e.target.value});  
   }
 
   render() {
-    const filterMonsters = this.filter();
-    console.log(filterMonsters)
+    const {monsters, search} = this.state;
+    const filterMonsters =  monsters.filter(monster =>
+      monster.name.toLowerCase().includes(search.toLowerCase())
+      )
+    
     return (
       
       <div className="App">
